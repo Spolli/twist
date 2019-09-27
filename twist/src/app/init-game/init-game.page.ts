@@ -14,8 +14,10 @@ export class InitGamePage implements OnInit {
   ngOnInit() {}
 
   addPlayer(): void {
-    this.players.push(this.playerVar);
-    this.playerVar = "";
+    if (this.playerVar !== null) {
+      this.players.push(this.playerVar);
+    }
+    this.playerVar = null;
   }
 
   removePlayer(name: string): void {
