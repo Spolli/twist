@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Player</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let name of players">
+    <!--print array of player-->
+    <ion-item>
+      <ion-label> {{ name }} </ion-label>
+      <ion-button position="stacked">
+        <button ion-button (click)="removePlayer(name)">
+          <ion-icon name="remove"></ion-icon>
+        </button>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-input placeholder="Add Player" [(ngModel)]="playerVar" autofocus></ion-input>
+    <ion-button position="stacked">
+      <button ion-button (click)="addPlayer()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-button>
+  </ion-item>
+</ion-content>
