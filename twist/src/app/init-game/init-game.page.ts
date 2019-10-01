@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NavigationExtras } from "@angular/router";
+import { NavigationExtras, Router } from "@angular/router";
 
 @Component({
   selector: "app-init-game",
@@ -7,20 +7,30 @@ import { NavigationExtras } from "@angular/router";
   styleUrls: ["./init-game.page.scss"]
 })
 export class InitGamePage implements OnInit {
-  private players: string[] = new Array();
+  private players: string[];
   private playerVar: string;
-  private navExtra: NavigationExtras = {
-    state: { players: this.players }
-  };
-  constructor() {}
+  private navExtra: NavigationExtras;
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.players = new Array();
+    this.playerVar = null;
+    this.navExtra = {
+      state: { players: this.players }
+    };
+  }
 
   addPlayer(): void {
     if (this.playerVar !== null) {
       this.players.push(this.playerVar);
     }
     this.playerVar = null;
+  }
+
+  startGame(): void {
+    if (this.players.length > 0) {
+      this.router.navigate(["/game"], this.navExtra.state);
+    }
   }
 
   removePlayer(name: string): void {

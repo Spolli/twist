@@ -8,20 +8,12 @@ import { Observable } from "rxjs";
   styleUrls: ["./game.page.scss"]
 })
 export class GamePage implements OnInit {
-  private moves: string[] = ["mano", "piede"];
-  private directions: string[] = ["destra", "sinistra"];
-  private colors: string[] = [
-    "nero",
-    "giallo",
-    "arancione",
-    "blu",
-    "verde",
-    "celeste",
-    "rosa"
-  ];
+  private moves: string[];
+  private directions: string[];
+  private colors: string[];
   private players: string[];
-  private game_text: string = "";
-  private turn: number = 0;
+  private game_text: string;
+  private turn: number;
 
   private color2hex: object = {
     nero: "#ffffff",
@@ -33,15 +25,27 @@ export class GamePage implements OnInit {
     rosa: "#ffc0cb"
   };
 
-  private genRandomNumber(len: number): number {
-    return Math.floor(Math.random() * len);
-  }
-
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.players = this.router.getCurrentNavigation().extras.state.players;
     this.next();
+    this.moves = ["mano", "piede"];
+    this.directions = ["destra", "sinistra"];
+    this.colors = [
+      "nero",
+      "giallo",
+      "arancione",
+      "blu",
+      "verde",
+      "celeste",
+      "rosa"
+    ];
+    this.turn = 0;
+  }
+
+  private genRandomNumber(len: number): number {
+    return Math.floor(Math.random() * len);
   }
 
   private next(): void {
