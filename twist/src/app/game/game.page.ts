@@ -29,7 +29,6 @@ export class GamePage implements OnInit {
 
   ngOnInit() {
     this.players = this.router.getCurrentNavigation().extras.state.players;
-    this.next();
     this.moves = ["mano", "piede"];
     this.directions = ["destra", "sinistra"];
     this.colors = [
@@ -42,6 +41,7 @@ export class GamePage implements OnInit {
       "rosa"
     ];
     this.turn = 0;
+    this.next();
   }
 
   private genRandomNumber(len: number): number {
