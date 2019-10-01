@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <div id="centerDiv" (click)="next()" style='--background:var(--my-var)'>
-    <ion-label>{{ game_text }}</ion-label>
-  </div>
+
+  <ion-grid>
+    <ion-col (click)="next()" style='--background:var(--my-var)'>
+      <ion-label>{{ game_text }}</ion-label>
+    </ion-col>
+  </ion-grid>
 </ion-content>

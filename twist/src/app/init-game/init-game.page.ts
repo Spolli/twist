@@ -29,7 +29,7 @@ export class InitGamePage implements OnInit {
 
   startGame(): void {
     if (this.players.length > 0) {
-      this.router.navigate(["/game"], this.navExtra.state);
+      this.router.navigate(["/game"], this.navExtra);
     }
   }
 
