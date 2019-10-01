@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NavigationExtras } from "@angular/router";
 
 @Component({
   selector: "app-init-game",
@@ -8,7 +9,9 @@ import { Component, OnInit } from "@angular/core";
 export class InitGamePage implements OnInit {
   private players: string[] = new Array();
   private playerVar: string;
-
+  private navExtra: NavigationExtras = {
+    state: { players: this.players }
+  };
   constructor() {}
 
   ngOnInit() {}

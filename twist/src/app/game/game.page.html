@@ -1,9 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ this.players[0] }}</ion-title>
+    <ion-title>Let's Twist Again!</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div id="centerDiv" (click)="next()" style='--background:var(--my-var)'>
+    <ion-label>{{ game_text }}</ion-label>
+  </div>
 </ion-content>
